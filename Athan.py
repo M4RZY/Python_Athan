@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime, timedelta
+import keyboard
 import pygame
 import time
 import os
@@ -9,14 +10,14 @@ os.chdir(BASE_DIR)
 pygame.mixer.init()
 boolean = 1
 
-athanmp3 = "Makkah.mp3"
-duamp3 = "dua.mp3"
+athanmp3 = "Athan.mp3" # Athan file
+duamp3 = "dua.mp3" # Dua File
 
 text_folder = "Text_Files"
 textfiles = os.listdir()
 
-athanlength = (202)
-dualength = (14)
+athanlength = (202) # Change Athan length (Seconds)
+dualength = (14) # Change Dua length (Seconds)
 
 def prayer_time():
     
@@ -47,6 +48,9 @@ def prayer_time():
     
     fajr_obj = datetime.strptime(fajr, "%H:%M")
     fajr = fajr_obj.strftime("%H:%M:%S")
+    
+    witr_obj = fajr_obj - timedelta(minutes=15)
+    witr = witr_obj.strftime("%H:%M:%S")
             
     dhuhr_obj = datetime.strptime(dhuhr, "%H:%M")
     dhuhr = dhuhr_obj.strftime("%H:%M:%S")
@@ -61,7 +65,16 @@ def prayer_time():
     isha_obj = datetime.strptime(isha, "%H:%M")
     isha = isha_obj.strftime("%H:%M:%S")
     
-    salah = (f"{year}-{month} {date} {fajr}", f"{year}-{month} {date} {dhuhr}", f"{year}-{month} {date} {asr}",f"{year}-{month} {date} {maghrib}",f"{year}-{month} {date} {isha}")
+    salah = (
+        #f"{year}-{month} {date} {datetime.now().strftime("%H:%M:%S")}", # For testing Athan
+        f"{year}-{month} {date} {fajr}", 
+        f"{year}-{month} {date} {dhuhr}", 
+        f"{year}-{month} {date} {asr}",
+        f"{year}-{month} {date} {maghrib}",
+        f"{year}-{month} {date} {isha}",
+        f"{year}-{month} {date} {witr}"
+        )
+    
     return salah
 
 def clock():
@@ -72,8 +85,8 @@ def clock():
         print(current_time, prayer_time())
         
         if current_time in prayer_time():
-            athan()
-                
+            athan()    
+            
         time.sleep(1)
         
 def athan():
@@ -87,5 +100,5 @@ def athan():
     pygame.mixer.music.play()
     
     time.sleep(dualength)
-
+    
 clock()

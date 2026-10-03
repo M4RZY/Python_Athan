@@ -1,12 +1,10 @@
-Welcome to my personal athan project
+<center><h1><b>Welcome to my personal athan project</b></h1></center>
 
+<center><b>[Context]</b></center>
 
+<paragraph></paragraph>
 
-
-
-\[Context]
-
-This project was one I had been meaning to do for a while as I couldn't find accurate athan software that linked up to my local mosque times,
+This project was one I had been meaning to do for a while as I couldn't find accurate athan software that linked up to my local mosque times, 
 
 as well as this having an athan playing on my phone or on my laptop while I'm in college wouldn't have been ideal,
 
@@ -16,94 +14,85 @@ one of them will be a designated athan for my room so I can rush to prayer more 
 
 
 
-as for the other laptop, I'm not sure what I'll do with it yet.
+<center>as for the other laptop, I'm not sure what I'll do with it yet.</center>
 
 
 
-\[The Method]
+<b>[V1]</b>
 
 Here I'll go through each file and what I did so you can hopefully be able to do it aswell.
 
+<paragraph></paragraph>
+<paragraph></paragraph>
 
+<center><b>The Folders:</b></center>
 
-The Folders:
+The `Calendars` folder contains all the pdf files of the calendar times, these times were downloaded from my local mosques website,
 
+I used an autohotkey script to download each one.
 
+```Format: yy:mm.pdf```
 
-&#x09;The "Calendars" folder contains all the pdf files of the calendar times, these times were downloaded from https://islamicfoundation.ie/timetable/ which is my local mosques website,
+`Calendars - Copy` is just a copy of the original download as I thought I would mess up the renaming process.
 
-&#x09;I used an autohotkey script to download each one.
-
-
-
-&#x09;	Format: yy:mm.pdf
-
-
-
-&#x09;"Calendars - Copy" is just a copy of the original download as I thought I would mess up the renaming process.
-
-&#x09;(I would recommend also doing the same)
+(_I would recommend also doing the same_)
 
 
 
-&#x09;"Text\_Files" is the result of converting the pdf files to text files and putting it in the format: 
+`Text_Files` is the result of converting the pdf files to text files and putting it in the format: 
+
+```day, date, fajr, sunrise, dhuhr, asr, maghrib, isha```
 
 
 
-&#x09;	day, date, fajr, sunrise, dhuhr, asr, maghrib, isha
+and `Text_Files - Copy` is just a copy of the unchanged text files in case I messed up.
 
+<paragraph></paragraph>
+<paragraph></paragraph>
 
+<center><b>The Sound Files:</b></center>
 
-&#x09;and "Text\_Files - Copy" is just a copy of the unchanged text files in case I messed up.
+The .wma sound files come from the software "Athan" by Islamic Finder,
+I changed them to .mp3 files so it would be compatible with the pygame library,
+this athan can be found on YouTube by this [link](https://youtu.be/MaEzj5eRmjc?si=FZxwOf31b4SM8AG7)
 
+<paragraph></paragraph>
+<paragraph></paragraph>
 
+<b><center>Python Files and AHK Script:</b></center>
 
-The Sound Files:
+`Athan.py` is the main python file, the others are what I used for formatting.
 
-&#x09;The .wma sound files come from the software "Athan" by Islamic Finder,
+To give a brief description, it's a clock that runs but it checks every second if the time now is equal to any of the salah times for that day.
 
-&#x09;I changed them to .mp3 files so it would be compatible with the pygame library.
+_Change the athan and dua lengths to the length of your athan file in seconds._
 
+`Parse.py` was me trying to understand how to use the data from the files,
 
+`TimetoTime.py` was an attempt to format the text files more to put them in the format `HH:MM:SS` instead of `HH:MM`.
 
-&#x09;this athan can be found on YouTube by this link: 
+`FormattingTextFiles.py`, `PDFRename.py` and `PDFTOTXT.py` are kinda self explanatory.
 
-&#x09;https://youtu.be/MaEzj5eRmjc?si=FZxwOf31b4SM8AG7
+<center>AthanCalendarAutomate.ahk loop explanation:</center>
 
+```
+1. Scroll all the way down 
+2. Click Download button
+3. Press Enter
+4. Scroll all the way up
+5. Press right arrow (move to next month)
+```
+<paragraph></paragraph>
+<paragraph></paragraph>
 
+<b>[V2]</b> <b>Upgrades:</b>
 
-Python Files and AHK Script:
+- Added Witr alarm 15 mins before Fajr
 
-&#x09;"Athan.py" is the main python file, the others are what I used for formatting.
+- `Makkah.mp3` is now [`Athan.mp3`](https://youtu.be/MaEzj5eRmjc?si=cvNEEJ0JpKNIXoqU) which is the one on YouTube mentioned earlier
 
-&#x09;To give a brief description, it's a clock that runs but it checks every second if the time now is equal to any of the salah times for that day.
-
-&#x09;
-
-&#x09;Change the athan and dua lengths to the length of your athan file in seconds.
-
-
-
-&#x09;"Parse.py" was me trying to understand how to use the data from the files,
-
-&#x09;"TimetoTime.py" was an attempt to format the text files more to put them in the format HH:MM:SS instead of HH:MM,
-
-&#x09;"FormattingTextFiles.py", "PDFRename.py" and "PDFTOTXT" are kinda self explanatory.
-
-
-
-&#x09;"AthanCalendarAutomate.ahk" loop explanation:
-
-&#x09;	1. Scroll all the way down 
-
-&#x09;	2. Click Download button
-
-&#x09;	3. Press Enter
-
-&#x09;	4. Scroll all the way up
-
-&#x09;	5. Press right arrow (move to next month)
-
+- Made code a bit neater in `Athan.py`
+- Added testing comment in `prayer_time()` function
 
 
 
