@@ -94,6 +94,10 @@ _Change the athan and dua lengths to the length of your athan file in seconds._
 - Made code a bit neater in `Athan.py`
 - Added testing comment in `prayer_time()` function
 
+<b>[V2.1]</b> <b>Bug Fixes:</b>
 
-
+- Added Pygame hide support prompt
+- Changed Athan Length
+- Added Frequency, size, Channels and Buffer to Pygame init
+- Added `timediff` for more accurate time and less time skips
 

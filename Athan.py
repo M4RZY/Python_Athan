@@ -1,12 +1,13 @@
 from datetime import datetime, timedelta
+import os
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 import pygame
 import time
-import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(BASE_DIR)
 
-pygame.mixer.init()
+pygame.mixer.init(frequency=48000, buffer=4800, size=-16, channels=2)
 boolean = 1
 
 athanmp3 = "Athan.mp3" # Athan file
@@ -15,7 +16,7 @@ duamp3 = "dua.mp3" # Dua File
 text_folder = "Text_Files"
 textfiles = os.listdir()
 
-athanlength = (202) # Change Athan length (Seconds)
+athanlength = (204) # Change Athan length (Seconds)
 dualength = (14) # Change Dua length (Seconds)
 
 def prayer_time():
@@ -86,7 +87,8 @@ def clock():
         if current_time in prayer_time():
             athan()    
             
-        time.sleep(1)
+        timediff = (1.0 - (time.time() % 1.0))
+        time.sleep(timediff)
         
 def athan():
     
