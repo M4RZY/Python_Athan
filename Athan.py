@@ -48,9 +48,6 @@ def prayer_time():
     
     fajr_obj = datetime.strptime(fajr, "%H:%M")
     fajr = fajr_obj.strftime("%H:%M:%S")
-    
-    witr_obj = fajr_obj - timedelta(minutes=15)
-    witr = witr_obj.strftime("%H:%M:%S")
             
     dhuhr_obj = datetime.strptime(dhuhr, "%H:%M")
     dhuhr = dhuhr_obj.strftime("%H:%M:%S")
@@ -72,7 +69,6 @@ def prayer_time():
         f"{year}-{month} {date} {asr}",
         f"{year}-{month} {date} {maghrib}",
         f"{year}-{month} {date} {isha}",
-        f"{year}-{month} {date} {witr}"
         )
     
     return salah
