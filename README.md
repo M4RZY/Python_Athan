@@ -87,8 +87,6 @@ _Change the athan and dua lengths to the length of your athan file in seconds._
 
 <b>[V2]</b> <b>Upgrades:</b>
 
-- Added Witr alarm 15 mins before Fajr
-
 - `Makkah.mp3` is now [`Athan.mp3`](https://youtu.be/MaEzj5eRmjc?si=cvNEEJ0JpKNIXoqU) which is the one on YouTube mentioned earlier
 
 - Made code a bit neater in `Athan.py`
@@ -102,3 +100,4 @@ _Change the athan and dua lengths to the length of your athan file in seconds._
 - Added `timediff` for more accurate time and less time skips
 - Added Athan.mp3 (_forgot to do it last time_)
 
+b>[V4]</b> <b>Fixes</b>
