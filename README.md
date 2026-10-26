@@ -100,4 +100,4 @@ _Change the athan and dua lengths to the length of your athan file in seconds._
 - Added `timediff` for more accurate time and less time skips
 - Added Athan.mp3 (_forgot to do it last time_)
 
-b>[V4]</b> <b>Fixes</b>
+<b>[V4]</b> <b>Fixes</b>
